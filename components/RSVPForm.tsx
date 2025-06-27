@@ -92,7 +92,7 @@ const RSVPForm = () => {
   }
 
   return (
-    <div className="flex flex-col justify-center gap-1 max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+    <div className="flex flex-col justify-center gap-1 max-w-md mx-auto p-6 bg-white rounded-lg shadow-md border">
       <h1 className="text-2xl font-bold mb-4">{event.title}</h1>
       <p className="mb-6">{event.description}</p>
       <div className="mb-6 flex flex-col gap-3">
@@ -167,7 +167,7 @@ const RSVPForm = () => {
             </div>
           </RadioGroup>
         </div>
-        <Button disabled={isLoading} type="submit">
+        <Button disabled={isLoading} type="submit" className="bg-[#f02e65]">
           {isLoading ? "Sending..." : "Send RSVP"}
         </Button>
       </form>

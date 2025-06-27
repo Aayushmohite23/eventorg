@@ -14,7 +14,7 @@ export default function AuthRedirectListener() {
         session &&
         ["/login", "/signup", "/callback", "/auth/login", "/auth/signup", "/auth/callback"].includes(pathname)
       ) {
-        router.replace("/my-events");
+        router.replace("/dashboard");
       }
     });
     return () => {

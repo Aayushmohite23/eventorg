@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { Input } from './ui/input';
+import { Textarea } from './ui/textarea';
+import { Label } from './ui/label';
 
 export interface EventFormData {
   title: string;
@@ -38,43 +41,59 @@ export default function EventForm({ onSubmit }: { onSubmit: (data: EventFormData
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-md mx-auto p-6 border rounded">
-      <h2 className="text-xl font-bold text-center mb-2">Create Event</h2>
-      <input
-        name="title"
-        placeholder="Event Title"
-        value={form.title}
-        onChange={handleChange}
-        required
-        className="border p-2 rounded"
-      />
-      <textarea
-        name="description"
-        placeholder="Description"
-        value={form.description}
-        onChange={handleChange}
-        className="border p-2 rounded"
-      />
-      <input
-        name="event_date"
-        type="date"
-        value={form.event_date}
-        onChange={handleChange}
-        required
-        className="border p-2 rounded"
-      />
-      <input
-        name="location"
-        placeholder="Location"
-        value={form.location}
-        onChange={handleChange}
-        required
-        className="border p-2 rounded"
-      />
-      <button type="submit" disabled={loading} className="bg-black text-white p-2 rounded">
+    <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-lg border p-8 flex flex-col gap-5 w-full max-w-md mx-auto">
+      <h2 className="text-2xl font-bold text-center mb-2 text-[#f02e65]">Create Event</h2>
+      <div className="flex flex-col gap-2">
+        <Label htmlFor="title">Event Title<span className="text-[#f02e65]">*</span></Label>
+        <Input
+          id="title"
+          name="title"
+          placeholder="Event Title"
+          value={form.title}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className="flex flex-col gap-2">
+        <Label htmlFor="description">Description</Label>
+        <Textarea
+          id="description"
+          name="description"
+          placeholder="Description"
+          value={form.description}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="flex flex-col gap-2">
+        <Label htmlFor="event_date">Event Date<span className="text-[#f02e65]">*</span></Label>
+        <Input
+          id="event_date"
+          name="event_date"
+          type="date"
+          value={form.event_date}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className="flex flex-col gap-2">
+        <Label htmlFor="location">Location<span className="text-[#f02e65]">*</span></Label>
+        <Input
+          id="location"
+          name="location"
+          placeholder="Location"
+          value={form.location}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <button
+        type="submit"
+        disabled={loading}
+        className="w-full bg-[#f02e65] hover:bg-[#ab073d] text-white p-2 rounded font-semibold transition-shadow hover:shadow-lg focus:shadow-lg mt-2"
+      >
         {loading ? 'Creating...' : 'Create Event'}
       </button>
-      {error && <p className="text-red-500 text-center">{error}</p>}
+      {error && <p className="text-red-500 text-center mt-2">{error}</p>}
     </form>
   );
 } 

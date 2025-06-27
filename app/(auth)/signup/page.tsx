@@ -7,7 +7,7 @@ export default function SignupPage() {
       <AuthForm mode="signup" />
       <p className="mt-4 text-center">
         Already have an account?{' '}
-        <Link href="/login" className="text-blue-600 underline">Login</Link>
+        <Link href="/login" className="text-[#f02e65] underline">Login</Link>
       </p>
     </div>
   );

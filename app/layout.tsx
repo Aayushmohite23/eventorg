@@ -4,6 +4,8 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import AuthRedirectListener from "../components/AuthRedirectListener";
 import Link from "next/link";
+import Navbar from "@/components/Navbar";
+import ClientNavbar from "@/components/ClientNavbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +34,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <AuthRedirectListener />
-        {children}
+        <ClientNavbar>{children}</ClientNavbar>
         <Toaster />
       </body>
     </html>

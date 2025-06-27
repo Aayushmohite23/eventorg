@@ -9,7 +9,7 @@ export default function CallbackPage() {
     const checkSession = async () => {
       const { data } = await supabase.auth.getSession();
       if (data.session) {
-        router.replace('/dashboard/my-events');
+        router.replace('/dashboard');
       } else {
         router.replace('/login');
       }
