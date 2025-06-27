@@ -12,10 +12,20 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { submitRSVP } from "@/actions/submitRSVP";
 import { toast } from "sonner";
 
+// Define a minimal Event type
+interface Event {
+  id: string;
+  title: string;
+  description: string;
+  event_date: string;
+  location: string;
+  // add more fields as needed
+}
+
 const RSVPForm = () => {
   const params = useParams();
   const eventId = params?.eventId;
-  const [event, setEvent] = useState<any>(null);
+  const [event, setEvent] = useState<Event | null>(null);
   const [loading, setLoading] = useState(true);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -159,11 +169,11 @@ const RSVPForm = () => {
           <RadioGroup value={attendance} onValueChange={setAttendance}>
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="yes" id="yes" />
-              <Label htmlFor="yes">Yes, I'll be there!</Label>
+              <Label htmlFor="yes">Yes, I&apos;ll be there!</Label>
             </div>
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="no" id="no" />
-              <Label htmlFor="no">Sorry, I can't make it</Label>
+              <Label htmlFor="no">Sorry, I can&apos;t make it</Label>
             </div>
           </RadioGroup>
         </div>
