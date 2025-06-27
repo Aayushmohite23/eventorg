@@ -34,8 +34,12 @@ export default function EventForm({ onSubmit }: { onSubmit: (data: EventFormData
     setLoading(true);
     try {
       await onSubmit(form);
-    } catch (err: any) {
-      setError(err.message || 'Something went wrong');
+    } catch (err: unknown) {
+      if (err && typeof err === 'object' && 'message' in err && typeof (err as any).message === 'string') {
+        setError((err as any).message);
+      } else {
+        setError('Something went wrong');
+      }
     }
     setLoading(false);
   };

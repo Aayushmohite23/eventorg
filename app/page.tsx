@@ -3,7 +3,6 @@ import { useState } from "react";
 import Image from "next/image";
 import Icon from "../public/logo.png";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import { ShimmerButton } from "@/components/magicui/shimmer-button";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 
@@ -22,7 +21,6 @@ const words=[
 
 export default function Home() {
   const router = useRouter();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <div className="bg-white">
@@ -38,7 +36,6 @@ export default function Home() {
             <button
               type="button"
               className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-              onClick={() => setMobileMenuOpen(true)}
             >
               <span className="sr-only">Open main menu</span>
             </button>

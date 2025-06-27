@@ -3,11 +3,9 @@ import { useRouter } from 'next/navigation';
 import { supabase } from '../../../lib/supabase/client';
 import EventForm, { EventFormData } from '../../../components/EventForm';
 import { toast } from 'sonner';
-import { useState } from 'react';
 
 export default function CreateEventPage() {
   const router = useRouter();
-  const [created, setCreated] = useState(false);
 
   const handleCreate = async (data: EventFormData) => {
     const { data: { user } } = await supabase.auth.getUser();
@@ -21,7 +19,6 @@ export default function CreateEventPage() {
     });
     if (error) throw error;
     toast('Event created successfully!');
-    setCreated(true);
     setTimeout(() => {
       router.push('/dashboard/my-events');
     }, 2000);
