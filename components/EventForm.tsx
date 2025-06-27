@@ -35,8 +35,8 @@ export default function EventForm({ onSubmit }: { onSubmit: (data: EventFormData
     try {
       await onSubmit(form);
     } catch (err: unknown) {
-      if (err && typeof err === 'object' && 'message' in err && typeof (err as any).message === 'string') {
-        setError((err as any).message);
+      if (err && typeof err === 'object' && 'message' in err && typeof (err as { message?: string }).message === 'string') {
+        setError((err as { message: string }).message);
       } else {
         setError('Something went wrong');
       }

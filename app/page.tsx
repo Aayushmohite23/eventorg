@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import Image from "next/image";
 import Icon from "../public/logo.png";
 import { useRouter } from "next/navigation";
